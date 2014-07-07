@@ -1,0 +1,21 @@
+<html>
+<body>
+  <script>
+  var httpGet = function(url) {
+    var r = new XMLHttpRequest();
+    r.open("GET", url, true);
+    r.send();
+  }
+  </script>
+  <img src='videostream.cgi' />
+  <br/>
+  <button onclick='javascript:httpGet("/decoder_control.cgi?command=25")'>Center camera</button>
+  <button onclick='javascript:httpGet("/decoder_control.cgi?command=4")'>Left</button>
+  <button onclick='javascript:httpGet("/decoder_control.cgi?command=6")'>Right</button>
+  <button onclick='javascript:httpGet("/decoder_control.cgi?command=0")'>Up</button>
+  <button onclick='javascript:httpGet("/decoder_control.cgi?command=2")'>Down</button>
+  <br/><br/>
+  <a href="/config">Configuration</a><br/>
+  <a href="/timelapse">Timelapse</a>
+</body>
+</html>

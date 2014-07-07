@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<body>
+  <h1>Configuration</h1>
+  <a href="/">Return to home</a><br/><br/>
+
+  <form action="/config/set" method="post">
+    {% for k, v, t in config %}
+      <label for="{{k}}">{{k}}</label>
+      {% if t == 'number' %}
+      <input type="textfield" type="number" name="{{k}}" value="{{v}}" />
+      {% elif t == 'boolean' %}
+      <input type="checkbox" name="{{k}}" {{"checked" if v else ""}} />
+      <input type="hidden" name="{{k}}" value="0" />
+      {% elif t == 'string' %}
+      <input type="textfield" name="{{k}}" value="{{v}}" />
+      {% endif %}
+      <br/>
+    {% endfor %}
+    <input type="submit" value="Update values" />
+  </form>
+</body>
+</html>

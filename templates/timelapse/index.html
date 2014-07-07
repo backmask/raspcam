@@ -1,0 +1,49 @@
+<html>
+<body>
+  <h1>Timelapse</h1>
+  <a href="/">Return to home</a><br/><br/>
+
+  <h2>Current tasks</h2>
+  <table>
+    <tr>
+      <td>Task name</td>
+      <td>Interval</td>
+      <td>Next run in</td>
+      <td>Total runs</td>
+    </tr>
+    {% for job in jobs %}
+    <tr>
+      <td>{{job.name}}</td>
+      <td>{{job.interval}}</td>
+      <td>{{job.next_run}}</td>
+      <td>{{job.total_runs}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <h2>Generated timelapses</h2>
+  <table>
+    <tr>
+      <td>Name</td>
+      <td>Size</td>
+      <td>Download</td>
+      <td>View</td>
+    </tr>
+    {% for t in timelapses %}
+    <tr>
+      <td>{{t.name}}</td>
+      <td>{{t.size}}</td>
+      <td><a href="/static/{{t.name}}">Download</a></td>
+      <td><a href="/timelapse/view/{{t.name}}">View</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <h2>Frames</h2>
+  <ul>
+    {% for f in frame_folders %}
+      <li><a href="/timelapse/frame/{{f}}">{{f}}</a></li>
+    {% endfor %}
+  </ul>
+</body>
+</html>

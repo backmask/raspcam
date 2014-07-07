@@ -1,0 +1,12 @@
+<html>
+<body>
+  <h1>Timelapse frames</h1>
+  <a href="/timelapse">Return to timelapse</a><br/><br/>
+
+  <ul>
+    {% for f in frames %}
+      <li><a href="/static/raw/{{folder}}/{{f}}">{{f}}</a></li>
+    {% endfor %}
+  </ul>
+</body>
+</html>
